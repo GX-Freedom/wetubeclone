@@ -1,0 +1,10 @@
+{
+  "name": "wetube",
+  "version": "1.0.0",
+  "description": "cloning Youcube Vanilla adn NodeJS",
+  "main": "index.js",
+  "author": "KimJinYoung",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
