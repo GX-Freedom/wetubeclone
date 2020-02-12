@@ -1,0 +1,15 @@
+extends layout/main
+include mixins/videoBlock
+
+block content
+    h1 Search
+    .search_header
+        h3 Searching in #{seearchingBy}
+    .search_videos
+        each item in videos
+            +videoBlock({
+                title:item.title,
+                description:item.description,
+                views:"views: "+item.views,
+                videoFile:item.videoFile
+        })
