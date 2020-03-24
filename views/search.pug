@@ -1,15 +1,16 @@
-extends layout/main
+extends layouts/main
 include mixins/videoBlock
 
 block content
-    h1 Search
-    .search_header
-        h3 Searching in #{seearchingBy}
-    .search_videos
+    .search__header
+        h3 Searching for: #{searchingBy}
+    .search__videos
+        if videos.length === 0
+            h5 No Videos Found
         each item in videos
             +videoBlock({
                 title:item.title,
-                description:item.description,
-                views:"views: "+item.views,
-                videoFile:item.videoFile
-        })
+                views:item.views,
+                videoFile:item.videoFile,
+                id:item.id
+            })

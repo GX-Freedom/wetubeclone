@@ -1,23 +1,15 @@
 import express from "express";
-import routers from "../routers";
+import routes from "../routes";
 import {
-    users,
-    userDetail,
-    editProfile,
-    changePassword
-} from "../controllers/userController"
+  userDetail,
+  editProfile,
+  changePassword
+} from "../controllers/userController";
 
+const userRouter = express.Router();
 
-export const userRoudter = express.Router();
+userRouter.get(routes.editProfile, editProfile);
+userRouter.get(routes.changePassword, changePassword);
+userRouter.get(routes.userDetail(), userDetail);
 
-userRoudter.get(routers.editProfile, editProfile);
-userRoudter.get(routers.changePassword, changePassword);
-userRoudter.get(routers.users, users);
-userRoudter.get(routers.userDetail(), userDetail);
-
-// userRoudter.get(routers.home, (req, res) => res.send("Home")); userRoudter.get(routers.join, (req, res) => res.send("Join"));
-// userRoudter.get(routers.login, (req, res) => res.send("Login"));
-// userRoudter.get(routers.logout, (req, res) => res.send("Logout"));
-// userRoudter.get(routers.search, (req, res) => res.send("search"));
-
-export default userRoudter;
+export default userRouter;
